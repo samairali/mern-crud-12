@@ -30,7 +30,7 @@ function CreatePost() {
                 description: description,
                 postCategory: categoryRef.current.value
             }
-            Axios.post("http://localhost:5000/posts/add", data).then((result) => {
+            Axios.post("/posts/add", data).then((result) => {
                 console.log(result);
                 history.push('/');
             }).catch((err) => {

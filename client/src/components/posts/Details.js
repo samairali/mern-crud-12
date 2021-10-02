@@ -4,7 +4,7 @@ import { Container } from 'react-bootstrap';
 function Details(props) {
     const [post, setPost] = useState({});
     const getPost = () => {
-        fetch("http://localhost:5000/posts/details/" + props.match.params.id).then((data) => {
+        fetch("/posts/details/" + props.match.params.id).then((data) => {
             return data.json();
         }).then((singlePost) => {
             setPost(singlePost.post);

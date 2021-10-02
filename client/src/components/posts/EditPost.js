@@ -12,7 +12,7 @@ function EditPost(props) {
     const [category, setCategory] = useState();
     const history = useHistory();
     const getPost = () => {
-        Axios.get(`http://localhost:5000/posts/details/${id}`).then((result) => {
+        Axios.get(`/posts/details/${id}`).then((result) => {
             console.log(result.data.post);
             setTitle(result.data.post.title)
             setDescription(result.data.post.description)
@@ -37,7 +37,7 @@ function EditPost(props) {
             description,
             postCategory: category
         }
-        Axios.put(`http://localhost:5000/posts/update/${id}`, data).then((result) => {
+        Axios.put(`/posts/update/${id}`, data).then((result) => {
             console.log(result);
             history.push("/");
         }).catch((err) => {

@@ -7,7 +7,7 @@ function AllPosts() {
     const [posts, setPosts] = useState([]);
     const getPosts = () => {
         console.log("check");
-        fetch("http://localhost:5000/posts")
+        fetch("/posts")
             .then((res) => {
                 return res.json();
             })
@@ -21,7 +21,7 @@ function AllPosts() {
     }
     const deletePost = (id) => {
         if (window.confirm("are you sure you want to delete")) {
-            Axios.delete("http://localhost:5000/posts/delete/" + id).then((result) => {
+            Axios.delete("/posts/delete/" + id).then((result) => {
                 console.log(result);
                 getPosts();
             }).catch((err) => {
@@ -32,7 +32,7 @@ function AllPosts() {
     }
     const handleSearch = (e) => {
         console.log(e.target.value);
-        Axios.get("http://localhost:5000/posts").then((result) => {
+        Axios.get("/posts").then((result) => {
             const end = result.data.posts.filter((post) => {
                 return  post.title.toLowerCase().includes(e.target.value) ||
                         post.description.toLowerCase().includes(e.target.value) ||
